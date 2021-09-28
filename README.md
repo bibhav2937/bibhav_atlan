@@ -9,7 +9,7 @@ The solution provides a working business model for multi-tenancy approach in Kub
 Major components of the given business model is as given below.
 
 ! Company | Business Role | Namespace in cluster | Service offered/consumed | 
-|---------------------------------------------------------------------------|
+|---------|---------------|----------------------|---------------------------|
 | Atlan | Service Provider | atlan | Offers a hosting platform for consumers |
 | hotdrinks_corporation | consumer using Fixed-resource-quota model | hotdrinks | Service Name: tea, coffee |
 | colddrinks_corporation | consumer using Fixed-resource-quota model | colddrinks | Service Name: juice, milkshake |
@@ -30,3 +30,6 @@ Major components of the given business model is as given below.
 4. Each customer will be given one namespace in the Atlan hosted kubernetes cluster.
 
 * Note: A customer needing multiple environments will be given a separate namespace for each environment in the atlan k8s cluster and will be charged separately for each namespace.
+
+# Architecture
+![Architecture](architecture_diagram.png)
