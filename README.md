@@ -94,6 +94,13 @@ Server Version: version.Info{Major:"1", Minor:"21", GitVersion:"v1.21.3", GitCom
 4. Azure samples chart (https://azure-samples.github.io/helm-charts/) used to bringup services for the demo
     * Add the sample chart using this command. (helm repo add azure-samples https://azure-samples.github.io/helm-charts/)
 
+# Solution implementation
+Steps to be performed in each namespace to implement the solution is covered in the marddown file stored in the folder with the same namespace name. Please go through each file for implementation steps.
+1. [atlan.md](atlan/atlan.md)
+2. [colddrinks.md](colddrinks/colddrinks.md)
+3. [hotdrinks.md](hotdrinks/hotdrinks.md)
+3. [softdrinks.md](softdrinks/softdrinks.md)
+
 # Verification
 1. Implemented solution can be verified by sending requests to the intended service. 
 2. A request sent at the correct path using the authorized credentials will result into success response.
