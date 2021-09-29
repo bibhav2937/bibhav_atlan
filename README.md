@@ -25,26 +25,26 @@ Why to go for multi-tenancy:
 
 ## Implementing multi-tenancy model
 These are the major points to consider from a service provider perspective while implementing a multi-tenancy solution.
-## Tenant isolation
+### Tenant isolation
 1. A user in the different tenant should not be able to access the user/service content of another tenant. 
 
-## Resource usage analytics per tenant
+### Resource usage analytics per tenant
 1. Need to implement a monitoring solution that measures multiple metrics per tenant for the billing purpose and to guarantee the SLAs between service provider and consumer.
 
-## Sharing common infrastructure
+### Sharing common infrastructure
 1. In order to save cost from a service provider perspective, we need to share the common cluster compute resources across the tenants.
 
-## Business model
+# Atlan Business model
 Atlan will follow these two business model across tenants.
 
-### Fixed-resource-quota model
+## Fixed-resource-quota model
 1. Customers make a agreement with 'atlan' and fix the resource-quota limits (CPUs, Memory) for their usage. Atlan will charge the customers based on the fixed resourcequota.
 2. Customers can request to bring-up any number of services till the total required resource consumption of the services is less than the limits of the agreement.
 3. Atlan will guarantee that SLA is always met for the customer. Thus, system monitoring responsibility is with atlan.
 4. Each customer will be given one namespace in the Atlan hosted kubernetes cluster.
 
 
-### Dynamic-pricing model
+## Dynamic-pricing model
 1. Custumers dont make any hard-limit agreements with Atlan. Atan will charge the customers dynamically based on the pricing-slab for total resources used by the services deployed for the customers.
 2. Customers can request to bring up any number of services till the pricing suits their budget.
 3. Atlan will guarantee that SLA is always met for the customer. Thus, system monitoring responsibility is with atlan.
