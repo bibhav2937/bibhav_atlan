@@ -15,7 +15,28 @@ Major components of the given business model is as given below.
 | colddrinks_corporation | consumer using Fixed-resource-quota model | colddrinks | Service Name: juice, milkshake |
 | softdrinks_corporation | consumer using Dynamic-pricing model | softdrinks | Service Name: pepsi |
 
+# Concepts
+## Multi-tenancy model
+A model where the residents of a infra share the usable resources for their own purpose to bring down the cost for themselves while offloading the common functionalities like maintainence, upgrades etc to the common vendor.
+Why to go for multi-tenancy:
+1. Cost reduction for individual tenants.
+2. cost reduction for service vendor.
+3. Shared resource utilisation across tenants.
+
+## Implementing multi-tenancy model
+These are the major points to consider from a service provider perspective while implementing a multi-tenancy solution.
+## Tenant isolation
+1. A user in the different tenant should not be able to access the user/service content of another tenant. 
+
+## Resource usage analytics per tenant
+1. Need to implement a monitoring solution that measures multiple metrics per tenant for the billing purpose and to guarantee the SLAs between service provider and consumer.
+
+## Sharing common infrastructure
+1. In order to save cost from a service provider perspective, we need to share the common cluster compute resources across the tenants.
+
 ## Business model
+Atlan will follow these two business model across tenants.
+
 ### Fixed-resource-quota model
 1. Customers make a agreement with 'atlan' and fix the resource-quota limits (CPUs, Memory) for their usage. Atlan will charge the customers based on the fixed resourcequota.
 2. Customers can request to bring-up any number of services till the total required resource consumption of the services is less than the limits of the agreement.
@@ -72,5 +93,12 @@ Server Version: version.Info{Major:"1", Minor:"21", GitVersion:"v1.21.3", GitCom
 3. kubectl
 4. Azure samples chart (https://azure-samples.github.io/helm-charts/) used to bringup services for the demo
     * Add the sample chart using this command. (helm repo add azure-samples https://azure-samples.github.io/helm-charts/)
+
+# Verification
+1. Implemented solution can be verified by sending requests to the intended service. 
+2. A request sent at the correct path using the authorized credentials will result into success response.
+3. A request sent on invalid path but using the authorized credentials will result into 404 not found error.
+3. A request sent on valid path but using the unauthorized credentials will result into 401-authorization required error.
+
 
 

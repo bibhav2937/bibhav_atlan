@@ -48,5 +48,5 @@ helm install coffee azure-samples/aks-helloworld `
 1. Check the resourcequota due to the resource deployed in the hotdrinks namespace.
 
         `kubectl get resourcequota resourcequota --namespace=hotdrinks --output=yaml`
-2. Observe the namespace has unused mem and cpu limits available in the colddrinks namespace.
+2. Observe the namespace has unused mem and cpu limits available in the hotdrinks namespace.
 `

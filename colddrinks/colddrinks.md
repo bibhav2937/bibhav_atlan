@@ -51,12 +51,16 @@ helm install milkshake azure-samples/aks-helloworld `
 2. Observe the namespace has unused mem and cpu limits available in the colddrinks namespace.
 
 ## Deploy resources to exceed the resourcequota limits
-1. Try to deploy a pod resource that has resource requirements within the namespace limits.
-    ` kubectl apply -f allowed_pod.yaml -n colddrinks`
+1. Try to deploy a pod resource that has resource requirements within the namespace limits. 
+
+        `kubectl apply -f allowed_pod.yaml -n colddrinks`
+
 2. Deploy another pod so that resource requirements exceed the namespace limits.
-    ` kubectl apply -f failed_pod.yaml -n colddrinks`
+
+        `kubectl apply -f failed_pod.yaml -n colddrinks`
+        
 3. Verify the second pod deployment failed with following error.
-`
-PS C:\Users\bibhavj\k8s\bibhav_atlan\colddrinks> kubectl.exe apply -f .\failed_pod.yaml -n colddrinks
-Error from server (Forbidden): error when creating ".\\failed_pod.yaml": pods "failedpod" is forbidden: exceeded quota: resourcequota, requested: requests.cpu=150m,requests.memory=161061273600m, used: requests.cpu=150m,requests.memory=161061273600m, limited: requests.cpu=250m,requests.memory=256Mi
-`
+
+        `PS C:\Users\bibhavj\k8s\bibhav_atlan\colddrinks> kubectl.exe apply -f .\failed_pod.yaml -n colddrinks
+        Error from server (Forbidden): error when creating ".\\failed_pod.yaml": pods "failedpod" is forbidden: exceeded quota: resourcequota, requested: requests.cpu=150m,requests.memory=161061273600m, used: requests.cpu=150m,requests.memory=161061273600m, limited: requests.cpu=250m,requests.memory=256Mi
+        `
